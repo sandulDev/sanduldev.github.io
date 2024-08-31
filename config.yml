@@ -1,0 +1,29 @@
+profile:
+  username: "@4n00bs"
+  image: "profile.jpg"
+
+links:
+  - category: "Telegram"
+    items:
+      - name: "Telegram - android4noobs"
+        url: "https://t.me/android4noobs"
+        image: "profile.jpg"
+      - name: "Telegram - python4noobs"
+        url: "https://t.me/python4noobs"
+        image: "profile.jpg"
+  - category: "Threads"
+    items:
+      - name: "Threads - android4noobs"
+        url: "https://threads.net/android4noobs"
+        image: "profile.jpg"
+      - name: "Threads - python4noobs"
+        url: "https://threads.net/python4noobs"
+        image: "profile.jpg"
+  - category: "X"
+    items:
+      - name: "X - android4noobs"
+        url: "https://twitter.com/android4noobs"
+        image: "profile.jpg"
+      - name: "X - python4noobs"
+        url: "https://twitter.com/python4noobs"
+        image: "profile.jpg"

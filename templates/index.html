@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.username }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1d1f21;
+            color: #fff;
+            padding: 20px;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .username {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .category {
+            font-size: 18px;
+            margin: 30px 0 10px;
+            text-transform: uppercase;
+        }
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .link img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        .link-text {
+            flex-grow: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+        .link-button {
+            font-size: 24px;
+        }
+    </style>
+    <!-- Firebase Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js"></script>
+    <script>
+        // Вставка конфігурації Firebase з використанням змінних середовища
+        const firebaseConfig = {
+            apiKey: "FIREBASE_API_KEY",
+            authDomain: "FIREBASE_AUTH_DOMAIN",
+            projectId: "FIREBASE_PROJECT_ID",
+            storageBucket: "FIREBASE_STORAGE_BUCKET",
+            messagingSenderId: "FIREBASE_MESSAGING_SENDER_ID",
+            appId: "FIREBASE_APP_ID",
+            measurementId: "FIREBASE_MEASUREMENT_ID"
+        };
+        // Ініціалізація Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        function logClickEvent(linkName) {
+            firebase.analytics().logEvent('link_click', {
+                link_name: linkName
+            });
+        }
+    </script>
+</head>
+<body>
+    <img src="{{ profile.image }}" alt="Profile" class="profile-img">
+    <div class="username">{{ profile.username }}</div>
+
+    {% for category in links %}
+        <div class="category">{{ category.category }}</div>
+        {% for item in category.items %}
+            <a href="{{ item.url }}" class="link" onclick="logClickEvent('{{ item.name }}')">
+                <img src="{{ item.image }}" alt="{{ item.name }}">
+                <div class="link-text">{{ item.name }}</div>
+                <div class="link-button">⋮</div>
+            </a>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>
