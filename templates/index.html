@@ -12,21 +12,25 @@
             color: #fff;
             padding: 20px;
         }
+
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
         }
+
         .username {
             font-size: 24px;
             margin-bottom: 20px;
         }
+
         .category {
             font-size: 18px;
             margin: 30px 0 10px;
             text-transform: uppercase;
         }
+
         .link {
             display: flex;
             align-items: center;
@@ -38,16 +42,19 @@
             border-radius: 10px;
             text-decoration: none;
         }
+
         .link img {
             width: 50px;
             height: 50px;
             border-radius: 10px;
         }
+
         .link-text {
             flex-grow: 1;
             margin-left: 20px;
             text-align: left;
         }
+
         .link-button {
             font-size: 24px;
         }
@@ -78,18 +85,18 @@
     </script>
 </head>
 <body>
-    <img src="{{ profile.image }}" alt="Profile" class="profile-img">
-    <div class="username">{{ profile.username }}</div>
+<img src="{{ profile.image }}" alt="Profile" class="profile-img">
+<div class="username">{{ profile.username }}</div>
 
-    {% for category in links %}
-        <div class="category">{{ category.category }}</div>
-        {% for item in category.items %}
-            <a href="{{ item.url }}" class="link" onclick="logClickEvent('{{ item.name }}')">
-                <img src="{{ item.image }}" alt="{{ item.name }}">
-                <div class="link-text">{{ item.name }}</div>
-                <div class="link-button">⋮</div>
-            </a>
-        {% endfor %}
-    {% endfor %}
+{% for category in links %}
+<div class="category">{{ category.category }}</div>
+{% for item in category.links_list %}
+<a href="{{ item.url }}" class="link" onclick="logClickEvent('{{ item.name }}')">
+    <img src="{{ item.image }}" alt="{{ item.name }}">
+    <div class="link-text">{{ item.name }}</div>
+    <div class="link-button">⋮</div>
+</a>
+{% endfor %}
+{% endfor %}
 </body>
 </html>

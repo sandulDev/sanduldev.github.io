@@ -4,7 +4,7 @@ profile:
 
 links:
   - category: "Telegram"
-    items:
+    links_list:
       - name: "Telegram - android4noobs"
         url: "https://t.me/android4noobs"
         image: "profile.jpg"
@@ -12,7 +12,7 @@ links:
         url: "https://t.me/python4noobs"
         image: "profile.jpg"
   - category: "Threads"
-    items:
+    links_list:
       - name: "Threads - android4noobs"
         url: "https://threads.net/android4noobs"
         image: "profile.jpg"
@@ -20,7 +20,7 @@ links:
         url: "https://threads.net/python4noobs"
         image: "profile.jpg"
   - category: "X"
-    items:
+    links_list:
       - name: "X - android4noobs"
         url: "https://twitter.com/android4noobs"
         image: "profile.jpg"
