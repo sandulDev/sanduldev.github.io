@@ -1,6 +1,7 @@
-from jinja2 import Environment, FileSystemLoader
-import yaml
 import os
+
+import yaml
+from jinja2 import Environment, FileSystemLoader
 
 
 def load_config():
