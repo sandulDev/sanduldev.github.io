@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@4n00bs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1d1f21;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .username {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .category {
+            font-size: 18px;
+            margin: 30px 0 10px;
+            text-transform: uppercase;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            color: #000;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .link img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .link-text {
+            flex-grow: 1;
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .link-button {
+            font-size: 24px;
+        }
+    </style>
+    <!-- Firebase Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyB9lirVJt0BVtznLFgUeGZiVsBZs1zTXRQ",
+            authDomain: "sanduldev-github-io.firebaseapp.com",
+            projectId: "sanduldev-github-io",
+            storageBucket: "sanduldev-github-io.appspot.com",
+            messagingSenderId: "818510259114",
+            appId: "1:818510259114:web:b5979d72117c27181ac1d3",
+            measurementId: "G-HYHSWRSW81"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        function logClickEvent(linkName) {
+            firebase.analytics().logEvent('link_click', {
+                link_name: linkName
+            });
+        }
+    </script>
+</head>
+<body>
+<img src="profile.jpg" alt="Profile" class="profile-img">
+<div class="username">@4n00bs</div>
+
+
+<div class="category">Telegram</div>
+
+<a href="https://t.me/android4noobs" class="link" onclick="logClickEvent('Telegram - android4noobs')">
+    <img src="profile.jpg" alt="Telegram - android4noobs">
+    <div class="link-text">Telegram - android4noobs</div>
+    <div class="link-button">⋮</div>
+</a>
+
+<a href="https://t.me/python4noobs" class="link" onclick="logClickEvent('Telegram - python4noobs')">
+    <img src="profile.jpg" alt="Telegram - python4noobs">
+    <div class="link-text">Telegram - python4noobs</div>
+    <div class="link-button">⋮</div>
+</a>
+
+
+<div class="category">Threads</div>
+
+<a href="https://threads.net/android4noobs" class="link" onclick="logClickEvent('Threads - android4noobs')">
+    <img src="profile.jpg" alt="Threads - android4noobs">
+    <div class="link-text">Threads - android4noobs</div>
+    <div class="link-button">⋮</div>
+</a>
+
+<a href="https://threads.net/python4noobs" class="link" onclick="logClickEvent('Threads - python4noobs')">
+    <img src="profile.jpg" alt="Threads - python4noobs">
+    <div class="link-text">Threads - python4noobs</div>
+    <div class="link-button">⋮</div>
+</a>
+
+
+<div class="category">X</div>
+
+<a href="https://twitter.com/android4noobs" class="link" onclick="logClickEvent('X - android4noobs')">
+    <img src="profile.jpg" alt="X - android4noobs">
+    <div class="link-text">X - android4noobs</div>
+    <div class="link-button">⋮</div>
+</a>
+
+<a href="https://twitter.com/python4noobs" class="link" onclick="logClickEvent('X - python4noobs')">
+    <img src="profile.jpg" alt="X - python4noobs">
+    <div class="link-text">X - python4noobs</div>
+    <div class="link-button">⋮</div>
+</a>
+
+
+</body>
+</html>
