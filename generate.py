@@ -3,23 +3,21 @@ import yaml
 import os
 
 
-# Зчитування конфігурації з YAML файлу
 def load_config():
     with open('config.yml', 'r') as file:
         return yaml.safe_load(file)
 
 
-# Генерація HTML з шаблону
-def generate_site(config_site):
+def generate_site(config):
     env = Environment(loader=FileSystemLoader('templates'))
     template = env.get_template('index.html')
-    output = template.render(profile=config_site['profile'], links=config_site['links'])
+    output = template.render(profile=config['profile'], links=config['links'])
 
-    # Запис результату у файл
+    os.makedirs('build', exist_ok=True)
+
     with open('build/index.html', 'w') as file:
         file.write(output)
 
-    # Копіювання статичних файлів у папку build
     os.makedirs('build/static', exist_ok=True)
     for image in os.listdir('static'):
         src = os.path.join('static', image)
