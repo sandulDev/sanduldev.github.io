@@ -72,11 +72,11 @@
             appId: "1:818510259114:web:b5979d72117c27181ac1d3",
             measurementId: "G-HYHSWRSW81"
         };
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
 
         function logClickEvent(linkName) {
-            firebase.analytics().logEvent('link_click', {
+            analytics.logEvent('link_click', {
                 link_name: linkName
             });
         }
