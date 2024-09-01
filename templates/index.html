@@ -72,11 +72,11 @@
             appId: "FIREBASE_APP_ID",
             measurementId: "FIREBASE_MEASUREMENT_ID"
         };
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
 
         function logClickEvent(linkName) {
-            firebase.analytics().logEvent('link_click', {
+            analytics.logEvent('link_click', {
                 link_name: linkName
             });
         }
