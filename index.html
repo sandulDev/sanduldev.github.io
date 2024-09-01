@@ -59,10 +59,10 @@
             font-size: 24px;
         }
     </style>
-    <!-- Firebase Analytics -->
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js"></script>
-    <script>
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+        import {getAnalytics, logEvent} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyB9lirVJt0BVtznLFgUeGZiVsBZs1zTXRQ",
             authDomain: "sanduldev-github-io.firebaseapp.com",
@@ -76,7 +76,7 @@
         const analytics = getAnalytics(app);
 
         function logClickEvent(linkName) {
-            analytics.logEvent('link_click', {
+            logEvent(analytics, 'link_click', {
                 link_name: linkName
             });
         }
