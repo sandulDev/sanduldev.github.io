@@ -8,7 +8,6 @@ def load_config():
     with open('config.yml', 'r') as file:
         return yaml.safe_load(file)
 
-
 def generate_site(config):
     env = Environment(loader=FileSystemLoader('templates'))
     template = env.get_template('index.html')
@@ -20,22 +19,20 @@ def generate_site(config):
         file.write(output)
 
     os.makedirs('build/static', exist_ok=True)
-    for image in os.listdir('static'):
-        src = os.path.join('static', image)
-        dest = os.path.join('build/static', image)
-        with open(src, 'rb') as f_src:
-            with open(dest, 'wb') as f_dest:
-                f_dest.write(f_src.read())
 
-    os.makedirs('build/static/css', exist_ok=True)
-    for css_file in os.listdir('static/css'):
-        src = os.path.join('static/css', css_file)
-        dest = os.path.join('build/static/css', css_file)
-        if os.path.isfile(src):
+    for root, dirs, files in os.walk('static'):
+        relative_path = os.path.relpath(root, 'static')
+        build_path = os.path.join('build/static', relative_path)
+
+        os.makedirs(build_path, exist_ok=True)
+
+        for file_name in files:
+            src = os.path.join(root, file_name)
+            dest = os.path.join(build_path, file_name)
+
             with open(src, 'rb') as f_src:
                 with open(dest, 'wb') as f_dest:
                     f_dest.write(f_src.read())
-
 
 if __name__ == "__main__":
     config = load_config()
