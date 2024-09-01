@@ -31,9 +31,10 @@ def generate_site(config):
     for css_file in os.listdir('static/css'):
         src = os.path.join('static/css', css_file)
         dest = os.path.join('build/static/css', css_file)
-        with open(src, 'rb') as f_src:
-            with open(dest, 'wb') as f_dest:
-                f_dest.write(f_src.read())
+        if os.path.isfile(src):
+            with open(src, 'rb') as f_src:
+                with open(dest, 'wb') as f_dest:
+                    f_dest.write(f_src.read())
 
 
 if __name__ == "__main__":
