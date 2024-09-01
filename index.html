@@ -10,7 +10,7 @@
 
 <script type="module">
     import {initializeApp} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-    import {getAnalytics, logEvent} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+    import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyB9lirVJt0BVtznLFgUeGZiVsBZs1zTXRQ",
@@ -23,13 +23,8 @@
     };
 
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    getAnalytics(app);
 
-    window.logClickEvent = function (linkName) {
-        logEvent(analytics, 'link_click', {
-            link_name: linkName
-        });
-    }
 </script>
 
 <img src="static/profile.jpg" alt="Profile" class="profile-img">
@@ -37,12 +32,12 @@
 
 <div class="category">Telegram</div>
 
-<a href="https://t.me/android4noobs" class="link" onclick="logClickEvent('Telegram - android4noobs')">
+<a href="https://t.me/android4noobs" class="link">
     <img src="static/profile.jpg" alt="Telegram - android4noobs">
     <div class="link-text">Telegram - android4noobs</div>
 </a>
 
-<a href="https://t.me/python4noobs" class="link" onclick="logClickEvent('Telegram - python4noobs')">
+<a href="https://t.me/python4noobs" class="link">
     <img src="static/profile.jpg" alt="Telegram - python4noobs">
     <div class="link-text">Telegram - python4noobs</div>
 </a>
@@ -50,12 +45,12 @@
 
 <div class="category">Threads</div>
 
-<a href="https://threads.net/android4noobs" class="link" onclick="logClickEvent('Threads - android4noobs')">
+<a href="https://threads.net/android4noobs" class="link">
     <img src="static/profile.jpg" alt="Threads - android4noobs">
     <div class="link-text">Threads - android4noobs</div>
 </a>
 
-<a href="https://threads.net/python4noobs" class="link" onclick="logClickEvent('Threads - python4noobs')">
+<a href="https://threads.net/python4noobs" class="link">
     <img src="static/profile.jpg" alt="Threads - python4noobs">
     <div class="link-text">Threads - python4noobs</div>
 </a>
@@ -63,12 +58,12 @@
 
 <div class="category">X</div>
 
-<a href="https://twitter.com/android4noobs" class="link" onclick="logClickEvent('X - android4noobs')">
+<a href="https://twitter.com/android4noobs" class="link">
     <img src="static/profile.jpg" alt="X - android4noobs">
     <div class="link-text">X - android4noobs</div>
 </a>
 
-<a href="https://twitter.com/python4noobs" class="link" onclick="logClickEvent('X - python4noobs')">
+<a href="https://twitter.com/python4noobs" class="link">
     <img src="static/profile.jpg" alt="X - python4noobs">
     <div class="link-text">X - python4noobs</div>
 </a>
