@@ -1,6 +1,6 @@
 profile:
   username: "@4n00bs"
-  image: "profile.jpg"
+  image: "static/profile.jpg"
 
 links:
   - category: "Telegram"
