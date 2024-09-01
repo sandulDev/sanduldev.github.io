@@ -59,30 +59,33 @@
             font-size: 24px;
         }
     </style>
-    <script type="module">
-        import {initializeApp} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-        import {getAnalytics, logEvent} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyB9lirVJt0BVtznLFgUeGZiVsBZs1zTXRQ",
-            authDomain: "sanduldev-github-io.firebaseapp.com",
-            projectId: "sanduldev-github-io",
-            storageBucket: "sanduldev-github-io.appspot.com",
-            messagingSenderId: "818510259114",
-            appId: "1:818510259114:web:b5979d72117c27181ac1d3",
-            measurementId: "G-HYHSWRSW81"
-        };
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        function logClickEvent(linkName) {
-            logEvent(analytics, 'link_click', {
-                link_name: linkName
-            });
-        }
-    </script>
 </head>
 <body>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import {getAnalytics, logEvent} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyB9lirVJt0BVtznLFgUeGZiVsBZs1zTXRQ",
+        authDomain: "sanduldev-github-io.firebaseapp.com",
+        projectId: "sanduldev-github-io",
+        storageBucket: "sanduldev-github-io.appspot.com",
+        messagingSenderId: "818510259114",
+        appId: "1:818510259114:web:b5979d72117c27181ac1d3",
+        measurementId: "G-HYHSWRSW81"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    function logClickEvent(linkName) {
+        logEvent(analytics, 'link_click', {
+            link_name: linkName
+        });
+    }
+</script>
+
 <img src="profile.jpg" alt="Profile" class="profile-img">
 <div class="username">@4n00bs</div>
 
@@ -132,4 +135,6 @@
 
 
 </body>
+
+
 </html>
